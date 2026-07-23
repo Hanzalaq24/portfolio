@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hanzala Qureshi — Full-Stack Engineer &amp; Founder, Akmal</title>
+<meta name="description" content="Hanzala Qureshi is a full-stack engineer and founder of Akmal, building SaaS platforms, e-commerce and business automation software for clients in India, the UAE, and the UK.">
+<link rel="canonical" href="https://portfolio.akmal.in/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://portfolio.akmal.in/">
+<meta property="og:title" content="Hanzala Qureshi — Full-Stack Engineer & Founder, Akmal">
+<meta property="og:description" content="Full-stack engineer and founder of Akmal, building SaaS platforms, e-commerce and business automation software for clients in India, the UAE, and the UK.">
+<meta property="og:image" content="https://portfolio.akmal.in/assets/img/photo.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hanzala Qureshi — Full-Stack Engineer & Founder, Akmal">
+<meta name="twitter:description" content="Full-stack engineer and founder of Akmal, building SaaS platforms, e-commerce and business automation software for clients in India, the UAE, and the UK.">
+<meta name="twitter:image" content="https://portfolio.akmal.in/assets/img/photo.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Hanzala Qureshi",
+  "url": "https://portfolio.akmal.in/",
+  "image": "https://portfolio.akmal.in/assets/img/photo.jpg",
+  "jobTitle": "Full-Stack Engineer & Founder",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Akmal",
+    "url": "https://akmal.in"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "P P Savani University"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Surat",
+    "addressRegion": "Gujarat",
+    "addressCountry": "IN"
+  },
+  "email": "mailto:support@akmal.in",
+  "sameAs": [
+    "https://linkedin.com/in/hanzala-qureshi-230636389",
+    "https://github.com/Hanzalaq24"
+  ]
+}
+</script>
+
+<script defer src="assets/js/three.min.js"></script>
+<script defer src="assets/js/gsap.min.js"></script>
+<script defer src="assets/js/scrolltrigger.min.js"></script>
+<link rel="stylesheet" href="assets/css/liquidframe.css">
+<script defer src="assets/js/app.js"></script>
+<style>
+  :root{
+    --bg: #FAF7F1;
+    --bg-alt: #F2EBDD;
+    --ink: #211D18;
+    --ink-soft: #6E6357;
+    --line: #E1D6C0;
+    --accent: #8A6A34;
+    --accent-deep: #5F4A24;
+    --chip: #EFE6D3;
+    --code-bg: #1D1A15;
+    --code-green: #8FBB99;
+    --code-text: #EDE7D8;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+    --max: 1040px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+    overflow-x: clip;
+  }
+  ::selection{ background: var(--chip); color: var(--accent-deep); }
+  a{ color: inherit; text-decoration: none; }
+  .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 32px; }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position: fixed; top:0; left:0; right:0; z-index: 50;
+    background: rgba(250,247,241,0.0);
+    transition: background .4s ease, border-color .4s ease;
+    border-bottom: 1px solid rgba(0,0,0,0);
+  }
+  header.nav.scrolled{
+    background: rgba(250,247,241,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    max-width: var(--max); margin:0 auto; padding: 18px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .mono-logo{
+    font-family: var(--mono); font-size: 17px; letter-spacing: 0.01em;
+    font-weight: 600; color: var(--ink);
+  }
+  .mono-logo span{ color: var(--accent); }
+  nav.links{ display:flex; gap: 34px; }
+  nav.links a{
+    font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-soft); transition: color .2s ease;
+  }
+  nav.links a:hover{ color: var(--accent-deep); }
+
+  /* ---------- HERO ---------- */
+  .hero{ padding: 110px 0 40px; position: relative; overflow: visible; }
+  .hero-grid{
+    display:grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items:start;
+  }
+  .eyebrow{
+    font-family: var(--mono); font-size: 13px; letter-spacing: 0.02em;
+    color: var(--accent-deep); margin-bottom: 22px; font-weight: 600;
+  }
+  .eyebrow::before{ content:"// "; color: var(--accent); }
+  h1.name{
+    font-family: var(--serif); font-weight: 500; font-size: 62px;
+    line-height: 1.04; margin: 0 0 20px; color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  p.subhead{
+    font-size: 18px; color: var(--ink-soft); max-width: 400px; margin: 0 0 32px;
+  }
+  .cta-row{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom: 24px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding: 12px 22px; border-radius: 3px; font-size: 14px; font-weight: 600;
+    letter-spacing: 0.02em; transition: all .25s ease; border:1px solid transparent;
+    cursor: pointer;
+  }
+  .btn-primary{ background: var(--ink); color: var(--bg); }
+  .btn-primary:hover{ background: var(--accent-deep); }
+  .btn-ghost{ border-color: var(--line); color: var(--ink); }
+  .btn-ghost:hover{ border-color: var(--accent); color: var(--accent-deep); }
+  .avail{
+    font-size: 13px; color: var(--ink-soft);
+    border-left: 2px solid var(--accent); padding-left: 12px;
+  }
+
+  /* ---------- HERO CTA ARROW ---------- */
+  .hero-cta-link{
+    display:inline-flex; align-items:center; gap:10px;
+    margin-top:10px; font-size:14px; font-weight:600;
+    color:var(--accent-deep); cursor:pointer; transition:gap .3s ease;
+    font-family:var(--mono);
+  }
+  .hero-cta-link:hover{ gap:16px; }
+  .hero-cta-link .arrow-body{
+    width:32px; height:2px; background:var(--accent); position:relative; transition:width .3s ease;
+  }
+  .hero-cta-link:hover .arrow-body{ width:44px; }
+  .hero-cta-link .arrow-body::after{
+    content:''; position:absolute; right:-2px; top:-4px;
+    border:5px solid transparent; border-left-color:var(--accent); border-left-width:7px;
+  }
+
+  /* ---------- SOCIAL PROOF ---------- */
+  .proof-strip{
+    display:flex; flex-wrap:wrap; gap: 10px; margin-top: 8px;
+  }
+  .proof-pill{
+    display:inline-flex; align-items:center; gap:8px;
+    padding: 9px 16px; background: var(--chip); border-radius: 30px;
+    font-size: 13px; font-weight: 600; color: var(--accent-deep);
+  }
+  .proof-pill b{ color: var(--ink); font-weight: 700; }
+
+  
+
+  /* ---------- HERO VISUAL (iPhone mockup) ---------- */
+  .hero-visual{
+    display: flex;
+    justify-content: flex-end;
+    transform: translateY(-3%);
+  }
+  @media (min-width: 861px){
+    .hero-visual{ margin-right: calc(-50vw + 552px); }
+  }
+  .hero-visual .phone-frame{
+    transform: scale(0.9);
+    transform-origin: top right;
+  }
+  .hero-visual .phone-screen iframe{
+    width:100%; height:100%; border:0; display:block;
+  }
+  .hero-visual .shot-fallback{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    background: linear-gradient(135deg, var(--bg-alt), var(--chip));
+    color: var(--ink-soft); font-family: var(--mono); font-size: 12px; text-align:center; padding: 20px;
+  }
+  .hero-visual .phone-viewport::after{
+    content:''; position:absolute; inset:2px; border-radius:44px;
+    border:1px solid rgba(0,0,0,0.1); pointer-events:none; z-index:9998;
+  }
+  .hero-visual .phone-viewport::before{
+    content:''; position:absolute; bottom:8px; left:50%;
+    transform:translateX(-50%);
+    width:134px; height:5px;
+    background:rgba(0,0,0,0.2);
+    border-radius:99px;
+    z-index:9999;
+  }
+
+  /* ---------- PHONE + SITE LIST WRAPPER ---------- */
+  .phone-and-sites{
+    display:flex; flex-direction:row; align-items:flex-start; gap:24px;
+  }
+  @media (min-width: 861px){
+    .phone-and-sites{ flex-direction:row-reverse; }
+  }
+
+  /* ---------- SITE LIST (right of phone) ---------- */
+  .site-slider{
+    display:flex; flex-direction:column; gap:8px;
+    padding-top:28px; min-width:140px;
+  }
+  .site-btn{
+    font-family:var(--mono); font-size:11px;
+    padding:8px 14px; border-radius:6px;
+    border:1px solid var(--line);
+    background:var(--bg); color:var(--ink-soft);
+    cursor:pointer; transition:all .2s ease;
+    text-align:left; white-space:nowrap;
+  }
+  .site-btn:hover{ border-color:var(--accent); color:var(--accent-deep); }
+  .site-btn.active{
+    background:var(--ink); color:var(--bg);
+    border-color:var(--ink);
+  }
+
+  /* ---------- MINI ROBOT MASCOT (fixed corner) ---------- */
+  .bot-stage{
+    position: fixed; right: 22px; bottom: 22px; width: 92px; height: 92px;
+    z-index: 40; border-radius: 50%; background: var(--bg-alt);
+    border: 1px solid var(--line); box-shadow: 0 14px 30px -10px rgba(33,29,24,0.3);
+  }
+  .bot-stage canvas{ width: 100% !important; height: 100% !important; display:block; }
+  @media (max-width: 720px){
+    .bot-stage{ display:none; }
+  }
+
+  /* ---------- TERMINAL STRIP ---------- */
+  .terminal-section{
+    background: var(--code-bg); padding: 64px 0;
+    position:relative;
+  }
+  .terminal-section::before{
+    content:''; position:absolute; top:0; left:0; right:0; height:40px;
+    background: linear-gradient(to bottom, var(--bg), transparent);
+    pointer-events:none;
+  }
+  .terminal-window{
+    max-width: 720px; margin: 0 auto; background: #17140F;
+    border-radius: 10px; overflow:hidden; border: 1px solid #322C22;
+    box-shadow: 0 30px 60px -30px rgba(0,0,0,0.6);
+  }
+  .terminal-bar{
+    display:flex; align-items:center; gap:8px; padding: 12px 16px;
+    background: #221E17; border-bottom: 1px solid #322C22;
+  }
+  .dot{ width:11px; height:11px; border-radius:50%; }
+  .dot.r{ background:#E0776D; } .dot.y{ background:#E0BA6D; } .dot.g{ background:#8FBB99; }
+  .terminal-title{
+    font-family: var(--mono); font-size: 12px; color: #8A8272; margin-left: 8px;
+  }
+  .terminal-body{
+    font-family: var(--mono); font-size: 14px; line-height: 1.9; padding: 26px 28px 32px;
+    min-height: 220px; color: var(--code-text);
+  }
+  .t-cmd{ color: var(--code-green); }
+  .t-cmd::before{ content:"$ "; color: #6B6055; }
+  .t-out{ color: var(--code-text); opacity: 0.85; padding-left: 2px; }
+  .t-line{ min-height: 1.9em; white-space: pre-wrap; word-break: break-word; }
+  .t-cursor{
+    display:inline-block; width: 8px; height: 15px; background: var(--code-green);
+    margin-left: 2px; vertical-align: -2px; animation: blink 1s steps(1) infinite;
+  }
+  @keyframes blink{ 50%{ opacity:0; } }
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{ padding: 84px 0; }
+  section.alt{ background: var(--bg-alt); }
+  .sec-head{ margin-bottom: 44px; }
+  .sec-eyebrow{
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em;
+    color: var(--accent-deep); font-weight:700; margin-bottom: 12px;
+    display:flex; align-items:center; gap: 12px;
+  }
+  .sec-eyebrow::before{ content:"["; color: var(--accent); }
+  .sec-eyebrow::after{ content:"]"; color: var(--accent); flex:0; }
+  .sec-eyebrow .rule{ height:1px; flex:1; background: var(--line); }
+  h2.sec-title{
+    font-family: var(--serif); font-size: 34px; font-weight:500; margin:0;
+    color: var(--ink);
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{ display:grid; grid-template-columns: 1fr 220px; gap: 48px; align-items:start; }
+  .about p{ font-size: 18px; color: var(--ink-soft); margin-bottom: 24px; }
+  .about strong{ color: var(--ink); font-weight: 600; }
+  .about-tags{ display:flex; flex-wrap:wrap; gap: 10px; }
+  .about-tags .chip{ background: var(--bg-alt); border: 1px solid var(--line); }
+  .about-photo img{
+    width:100%; border-radius: 6px; display:block;
+    box-shadow: 0 20px 40px -24px rgba(33,29,24,0.35);
+  }
+  .about-photo{ position:relative; }
+  .about-photo::after{
+    content:""; position:absolute; top:12px; left:12px; right:-12px; bottom:-12px;
+    border: 1px solid var(--accent); border-radius: 6px; z-index:-1;
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .exp-role{ display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px; margin-bottom: 26px; }
+  .exp-role h3{ font-family: var(--serif); font-size: 24px; font-weight:600; margin:0; }
+  .exp-role time{ font-family: var(--mono); font-size: 13px; color: var(--ink-soft); }
+  ul.exp-list{ list-style:none; margin:0; padding:0; max-width: 760px; }
+  ul.exp-list li{
+    position: relative; padding-left: 22px; margin-bottom: 16px;
+    color: var(--ink-soft); font-size: 16px;
+  }
+  ul.exp-list li::before{
+    content:""; position:absolute; left:0; top: 9px; width:6px; height:6px;
+    background: var(--accent); border-radius: 50%;
+  }
+  ul.exp-list li strong{ color: var(--ink); font-weight:600; }
+
+  /* ---------- WORK CARDS ---------- */
+  .work-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 24px; }
+  .card{
+    background: var(--bg); border: 1px solid var(--line); border-radius: 6px;
+    padding: 0 0 24px; overflow:hidden;
+    transition: transform .15s ease, box-shadow .3s ease;
+    transform-style: preserve-3d; will-change: transform;
+  }
+  .card .shot{ width:100%; aspect-ratio: 16/10; object-fit: cover; display:block; background: var(--bg-alt); }
+  .card .shot-fallback{
+    width:100%; aspect-ratio:16/10; display:flex; align-items:center; justify-content:center;
+    background: linear-gradient(135deg, var(--bg-alt), var(--chip));
+    color: var(--ink-soft); font-family: var(--mono); font-size: 11px; text-align:center; padding: 14px;
+  }
+  .card .card-body{ padding: 22px 24px 0; }
+  section.alt .card{ background: var(--bg); }
+  .card:hover{ box-shadow: 0 24px 44px -26px rgba(33,29,24,0.4); }
+  .card h4{ font-family: var(--serif); font-size: 20px; margin: 0 0 4px; font-weight:600; }
+  .card .tag{ font-family: var(--mono); font-size: 11.5px; color: var(--accent-deep); margin-bottom:16px; display:block; }
+  .card .row{ margin-bottom: 12px; }
+  .card .row b{ display:block; font-size: 11px; text-transform:uppercase; letter-spacing:0.08em; color: var(--ink-soft); margin-bottom: 3px; }
+  .card .row span{ font-size: 14.5px; color: var(--ink); }
+
+  .work-secondary{ display:grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+  .work-secondary .card{ padding: 28px 24px; }
+  .work-secondary .card p{ font-size: 14.5px; color: var(--ink-soft); margin: 0; }
+
+  .also-built{ border-top: 1px solid var(--line); padding-top: 22px; }
+  .also-built .label{ font-family: var(--mono); font-size: 12px; color: var(--ink-soft); margin-bottom: 12px; }
+  .also-built ul{ list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap: 10px 0; }
+  .also-built li{
+    font-size: 14.5px; color: var(--ink); padding-right: 22px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .also-built li .dot{
+    width:8px; height:8px; border-radius:50%; flex-shrink:0;
+    display:inline-block;
+  }
+  .also-built li span{ color: var(--ink-soft); }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .skill-col .label{
+    font-family: var(--mono); font-size: 12px; color: var(--accent-deep); font-weight:700; margin-bottom: 16px;
+  }
+  .chip-row{ display:flex; flex-wrap:wrap; gap: 10px; }
+  .chip{
+    font-size: 13.5px; padding: 7px 14px; background: var(--chip);
+    border-radius: 3px; color: var(--ink);
+  }
+
+  /* ---------- ACHIEVEMENTS ---------- */
+  .ach-list{ display:flex; flex-wrap:wrap; gap: 12px; }
+  .ach-list li{
+    list-style:none; font-size: 14px; color: var(--ink-soft);
+    background: var(--bg-alt); border: 1px solid var(--line);
+    padding: 12px 18px; border-radius: 6px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .ach-list li strong{
+    color: var(--accent-deep); font-weight:700;
+    background: var(--chip); padding:2px 8px; border-radius:3px;
+    font-family: var(--mono); font-size:13px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{ padding: 64px 0 32px; }
+  .footer-quote{ margin-bottom: 28px; }
+  .footer-quote p{
+    font-family: var(--serif); font-style: italic; font-size: 24px;
+    color: var(--ink); max-width: 540px; line-height: 1.3; margin:0;
+  }
+  .footer-cta h2{ font-family: var(--serif); font-size: 34px; font-weight:500; margin: 0 0 22px; max-width: 520px; }
+  .footer-grid{ display:grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-top: 40px; }
+  .footer-col .label{ font-family: var(--mono); font-size: 12px; color: var(--ink-soft); margin-bottom: 14px; }
+  .footer-col a, .footer-col div{ display:block; font-size: 15px; margin-bottom:8px; color: var(--ink); }
+  .footer-col a:hover{ color: var(--accent-deep); }
+  .sign-off{
+    margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-family: var(--mono); font-size: 12px; color: var(--ink-soft);
+  }
+
+  @media (max-width: 860px){
+    .hero-grid{ grid-template-columns: 1fr; }
+    .hero-visual{ order:-1; right: 0; }
+    .phone-and-sites{ flex-direction:column; align-items:center; }
+    .site-slider{ flex-direction:row; flex-wrap:wrap; padding-top:12px; min-width:unset; justify-content:center; }
+    h1.name{ font-size: 42px; }
+    .about-grid{ grid-template-columns: 1fr; }
+    .about-photo{ max-width: 180px; }
+    .work-grid{ grid-template-columns: 1fr; }
+    .work-secondary{ grid-template-columns: 1fr; }
+    .skills-grid{ grid-template-columns: 1fr; gap: 28px; }
+    .footer-grid{ grid-template-columns: 1fr; gap: 28px; }
+    nav.links{ display:none; }
+    .wrap{ padding: 0 22px; }
+    .terminal-body{ font-size: 12.5px; }
+  }
+
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--accent-deep); outline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<header class="nav" id="siteNav">
+  <div class="nav-inner">
+    <div class="mono-logo">&lt;<span>hq</span>/&gt;</div>
+    <nav class="links">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">full-stack engineer &amp; founder, akmal</div>
+      <h1 class="name">Hanzala Qureshi</h1>
+      <p class="subhead">I build calm, capable software — the kind that quietly works — for clients across India, the UAE, and the UK.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:support@akmal.in">Email me</a>
+        <a class="btn btn-ghost" href="https://linkedin.com/in/hanzala-qureshi-230636389" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/Hanzalaq24" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div class="hero-cta-link" onclick="document.querySelector('.hero-visual').scrollIntoView({behavior:'smooth',block:'center'});">
+        See the work <span class="arrow-body"></span>
+      </div>
+      <div class="avail">Open to remote work &amp; relocation — UAE, Saudi Arabia, and beyond.</div>
+      <div class="proof-strip">
+        <span class="proof-pill"><b>10+</b>&nbsp;Production Applications</span>
+        <span class="proof-pill">Clients in 🇮🇳 🇦🇪 🇬🇧</span>
+        <span class="proof-pill">Startup Competition Finalist</span>
+        <span class="proof-pill"><b>MSG91</b>&nbsp;Partner</span>
+      </div>
+    </div>
+    <div class="hero-visual" id="heroVisual">
+      <div class="phone-and-sites">
+        <div class="phone-frame chrome-pwa" style="--screen-bg:#1a1430;">
+          <div class="phone-btn phone-btn-action" title="Action Button"></div>
+          <div class="phone-btn phone-btn-volup" title="Volume Up"></div>
+          <div class="phone-btn phone-btn-voldown" title="Volume Down"></div>
+          <div class="phone-btn phone-btn-power" title="Power Button"></div>
+          <div class="phone-notch"></div>
+          <div class="phone-viewport">
+            <div class="status-bar-info">
+              <div><span>9:41</span></div>
+              <div style="display:flex; gap:6px; align-items:center;">
+                <svg width="19" height="13" viewBox="0 0 24 24" fill="currentColor" style="opacity:0.9;"><rect x="1" y="16" width="3.5" height="5" rx="0.5"/><rect x="6.5" y="12" width="3.5" height="9" rx="0.5"/><rect x="12" y="7.5" width="3.5" height="13.5" rx="0.5"/><rect x="17.5" y="3" width="3.5" height="18" rx="0.5" opacity="0.3"/></svg>
+                <svg width="18" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.9;"><path d="M12 20h.01"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M5 13a10 10 0 0 1 14 0"/><path d="M1.5 9.5a15 15 0 0 1 21 0"/></svg>
+                <svg width="25" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:2px;opacity:0.9;"><rect x="1" y="5" width="18" height="14" rx="3" ry="3"/><line x1="22" y1="10" x2="22" y2="14"/><rect x="3" y="7" width="12" height="10" rx="1.5" ry="1.5" fill="currentColor"/></svg>
+              </div>
+            </div>
+            <div class="sim-safari-top-capsule">
+              <div class="safari-capsule-address-box">
+                <span class="safari-icon-page-menu">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </span>
+                <span class="safari-url" id="safariUrl">rifaahdubai.com</span>
+                <span class="safari-icon-reload">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="sim-safari-bottom-liquid-bar">
+              <div class="safari-liquid-address-row">
+                <div class="safari-capsule-address-box">
+                  <span class="safari-icon-page-menu">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  </span>
+                  <span class="safari-url">rifaahdubai.com</span>
+                  <span class="safari-icon-reload">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                  </span>
+                </div>
+              </div>
+              <div class="safari-liquid-buttons-row">
+                <div class="safari-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></div>
+                <div class="safari-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+                <div class="safari-btn"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg></div>
+                <div class="safari-btn"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+                <div class="safari-btn"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="13" height="13" rx="2" ry="2"/><path d="M9 21h10a2 2 0 0 0 2-2V9"/></svg></div>
+              </div>
+            </div>
+            <div class="sim-safari-compact-bar">
+              <div class="compact-capsule compact-capsule-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </div>
+              <div class="compact-capsule compact-capsule-pill">
+                <span class="compact-pill-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+                <span class="compact-pill-url">rifaahdubai.com</span>
+                <span class="compact-pill-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></span>
+              </div>
+              <div class="compact-capsule compact-capsule-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+              </div>
+            </div>
+            <div class="home-indicator-area"></div>
+            <div class="phone-screen">
+              <iframe id="browserIframe" title="Website preview"></iframe>
+              <div class="shot-fallback" id="browserFallback" aria-hidden="true">Loading…</div>
+            </div>
+          </div>
+        </div>
+        <div class="site-slider" id="siteSlider"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="terminal-section">
+  <div class="wrap">
+    <div class="terminal-window">
+      <div class="terminal-bar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="terminal-title">hanzala@akmal — zsh</span>
+      </div>
+      <div class="terminal-body" id="termBody"></div>
+    </div>
+  </div>
+</section>
+
+<div class="bot-stage" id="botStage" title="hi, I'm Hanzala's little helper"></div>
+
+<section class="about reveal" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="sec-head">
+        <div class="sec-eyebrow">about<span class="rule"></span></div>
+        <h2 class="sec-title">A little about how I work</h2>
+      </div>
+      <p>I'm the founder of <strong>Akmal</strong>, a small digital and brand studio I run largely on my own. I like my code the way I like most things: quiet, considered, and built to last past the first release.</p>
+      <div class="about-tags">
+        <span class="chip">Founder</span>
+        <span class="chip">10+ Products Shipped</span>
+        <span class="chip">Applied AI</span>
+        <span class="chip">Healthcare</span>
+        <span class="chip">Manufacturing</span>
+        <span class="chip">SaaS</span>
+        <span class="chip">B.Tech AI &amp; ML — in progress</span>
+      </div>
+    </div>
+    <div class="about-photo">
+      <img src="assets/img/photo.jpg" alt="Hanzala Qureshi">
+    </div>
+  </div>
+</section>
+
+<section class="alt reveal" id="experience">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">experience<span class="rule"></span></div>
+      <h2 class="sec-title">Founder &amp; Full-Stack Developer</h2>
+    </div>
+    <div class="exp-role">
+      <h3>Akmal — akmal.in</h3>
+      <time>2025 — Present</time>
+    </div>
+    <ul class="exp-list">
+      <li>Shipped <strong>10+ production web applications</strong> for clients across India, the UAE, and the UK — spanning manufacturing, healthcare, real estate, e-commerce, and NGO work.</li>
+      <li>Built and now run <strong>Akmal Creative Hub</strong>, the internal tool that replaced spreadsheets for project tracking, invoicing, and delivery across every client engagement.</li>
+      <li>Led international outreach for UK dental and aesthetic clinics using <strong>live mockups instead of cold pitches</strong>, turning conversations into signed work.</li>
+      <li>Negotiated and signed an <strong>affiliate partnership with MSG91</strong>, spanning WhatsApp Business API, SMS, and voice.</li>
+      <li>Own delivery end-to-end — discovery, proposal, SRS, build, and post-launch support — using a standard process I built for the studio.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="work" class="reveal">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">selected work<span class="rule"></span></div>
+      <h2 class="sec-title">Three problems, three builds</h2>
+    </div>
+
+    <div class="work-grid">
+      <div class="card">
+        <img class="shot" src="assets/img/projects/rifaah-dubai.png" alt="Rifaah Dubai screenshot" loading="lazy">
+        <div class="card-body">
+          <h4>Rifaah Dubai</h4>
+          <span class="tag">perfume e-commerce · uae</span>
+          <div class="row"><b>Problem</b><span>An international storefront that had to handle real payments and customer data from day one — no room for shortcuts.</span></div>
+          <div class="row"><b>Build</b><span>Next.js, PocketBase, Zustand, with OTP authentication and a dedicated security-hardening pass across the stack.</span></div>
+          <div class="row"><b>Outcome</b><span>Live in production, now in post-launch support.</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <img class="shot" src="assets/img/projects/gottlich.png" alt="Gottlich Hardware screenshot" loading="lazy">
+        <div class="card-body">
+          <h4>Gottlich Hardware</h4>
+          <span class="tag">corporate site · manufacturing</span>
+          <div class="row"><b>Problem</b><span>A precision hardware manufacturer needed a modern web presence that reflected their engineering credibility — without overcomplicating it.</span></div>
+          <div class="row"><b>Build</b><span>A clean multi-page corporate site with product catalog, category browsing, and contact integration — built fast with a focus on load speed and mobile usability.</span></div>
+          <div class="row"><b>Outcome</b><span>Live corporate site serving as the company's primary digital storefront.</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <img class="shot" src="assets/img/projects/smart-qr.png" alt="Smart QR screenshot" loading="lazy">
+        <div class="card-body">
+          <h4>Smart QR</h4>
+          <span class="tag">ai review generation · qr.akmal.in</span>
+          <div class="row"><b>Problem</b><span>Small businesses wanted more Google reviews, without chasing every customer for one.</span></div>
+          <div class="row"><b>Build</b><span>A Gemini-powered SaaS delivered as a physical QR product, with tiered pricing.</span></div>
+          <div class="row"><b>Outcome</b><span>Two paying pilot clients, plus a finalist placing at the PPSU Startup Competition and AMD Slingshot Roadshow.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-secondary">
+      <div class="card">
+        <h4>Akmal Creative Hub</h4>
+        <p>The internal Kanban, invoicing, and delivery-tracking system that runs the studio itself — built once, used on every project since.</p>
+      </div>
+      <div class="card">
+        <h4>Gulshan E Ahmad Trust</h4>
+        <p>Rebuilt an NGO's public site in Next.js while keeping its existing backend intact, under strict rules around beneficiary privacy.</p>
+      </div>
+    </div>
+
+    <div class="also-built">
+      <div class="label">// also built</div>
+      <ul>
+        <li><span class="dot" style="background:#C9A24B"></span>MHC Trust <span>— trilingual patient intake &amp; donations</span></li>
+        <li><span class="dot" style="background:#8FBB99"></span>Gottlich Hardware <span>— corporate site</span></li>
+        <li><span class="dot" style="background:#E0BA6D"></span>N Plus One Fashion <span>— brand site</span></li>
+        <li><span class="dot" style="background:#7AB8C9"></span>Al-Aafiyah <span>— real estate platform</span></li>
+        <li><span class="dot" style="background:#C97B7B"></span>Dental Clinic (UK) <span>— outreach demo build</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="alt reveal" id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">skills<span class="rule"></span></div>
+      <h2 class="sec-title">What I build with</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-col">
+        <div class="label">// technologies</div>
+        <div class="chip-row">
+          <span class="chip">JavaScript (ES6)</span>
+          <span class="chip">React.js</span>
+          <span class="chip">Next.js</span>
+          <span class="chip">Node.js</span>
+          <span class="chip">Express.js</span>
+          <span class="chip">PHP</span>
+          <span class="chip">Python</span>
+          <span class="chip">MySQL</span>
+          <span class="chip">MongoDB</span>
+          <span class="chip">Supabase</span>
+          <span class="chip">PocketBase</span>
+          <span class="chip">Tailwind CSS</span>
+          <span class="chip">Git &amp; GitHub</span>
+        </div>
+      </div>
+      <div class="skill-col">
+        <div class="label">// domain expertise</div>
+        <div class="chip-row">
+          <span class="chip">SaaS Architecture</span>
+          <span class="chip">Business Automation</span>
+          <span class="chip">Admin Dashboards</span>
+          <span class="chip">API Integration</span>
+          <span class="chip">Security Hardening</span>
+          <span class="chip">SEO</span>
+          <span class="chip">Applied AI (Gemini, NVIDIA NIM)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">recognition<span class="rule"></span></div>
+      <h2 class="sec-title">Along the way</h2>
+    </div>
+    <ul class="ach-list">
+      <li><strong>PPSU</strong> Inter-Institute Startup Competition</li>
+      <li><strong>AMD</strong> Slingshot Roadshow</li>
+      <li><strong>MSG91</strong> Affiliate Partnership (MOU)</li>
+      <li><strong>10+</strong> Production Apps Shipped</li>
+    </ul>
+  </div>
+</section>
+
+<footer id="contact" class="alt reveal">
+  <div class="wrap">
+    <div class="footer-quote">
+      <p>"Good software should disappear into the background — and just work."</p>
+    </div>
+    <div class="footer-cta">
+      <div class="sec-eyebrow">contact<span class="rule"></span></div>
+      <h2>Let's build something quiet and capable.</h2>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:support@akmal.in">Email me</a>
+        <a class="btn btn-ghost" href="mailto:support@akmal.in?subject=Let%27s%20talk&body=Hi%20Hanzala%2C%20I%27d%20like%20to%20schedule%20a%20call%20to%20discuss...">Schedule a call</a>
+        <a class="btn btn-ghost" href="tel:+919824270999">+91 98242 70999</a>
+      </div>
+      <div class="avail" style="margin-top:20px;">Open to remote work &amp; relocation — UAE, Saudi Arabia, and beyond.</div>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="label">based in</div>
+        <div>Surat, Gujarat, India</div>
+        <div style="margin-top:14px;" class="label">open to</div>
+        <div>Remote work &amp; relocation (UAE / Saudi Arabia)</div>
+      </div>
+      <div class="footer-col">
+        <div class="label">elsewhere</div>
+        <a href="https://linkedin.com/in/hanzala-qureshi-230636389" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Hanzalaq24" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://portfolio.akmal.in" target="_blank" rel="noopener">Portfolio</a>
+      </div>
+      <div class="footer-col">
+        <div class="label">education</div>
+        <div>B.Tech, AI &amp; ML — P P Savani University</div>
+        <div>Diploma, Computer Engineering</div>
+        <div style="margin-top:14px;" class="label">languages</div>
+        <div>English · Hindi · Gujarati</div>
+      </div>
+    </div>
+    <div class="sign-off">
+      <div>built by hanzala, for hanzala.</div>
+      <div>© 2026 hanzala qureshi</div>
+    </div>
+  </div>
+</footer>
+
+
+
+</body>
+</html>

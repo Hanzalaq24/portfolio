@@ -1,0 +1,19 @@
+{
+  "name": "portfolio_repo-2",
+  "version": "1.0.0",
+  "description": "Single-page developer portfolio. Fully static, no build step required.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-html-parser": "^9.0.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.61.1"
+  }
+}
