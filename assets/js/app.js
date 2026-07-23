@@ -1,33 +1,64 @@
 (function(){
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const nav = document.getElementById('siteNav');
+  const scrollBar = document.getElementById('scrollProgress');
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  /* Scroll progress bar */
+  function updateScrollProgress(){
+    if (!scrollBar) return;
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+    scrollBar.style.width = pct + '%';
+  }
+
+  /* Hamburger toggle */
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', function(){
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ navLinks.classList.remove('open'); });
+    });
+  }
 
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
+    updateScrollProgress();
   });
+  updateScrollProgress();
 
   if (window.gsap && window.ScrollTrigger && !reduceMotion) {
     gsap.registerPlugin(ScrollTrigger);
     document.querySelectorAll('.reveal').forEach(el => {
-      gsap.fromTo(el, { opacity: 0, y: 32 }, {
-        opacity: 1, y: 0, duration: 0.9, ease: 'power3.out',
+      gsap.fromTo(el, { opacity: 0, y: 40 }, {
+        opacity: 1, y: 0, duration: 1, ease: 'power3.out',
         scrollTrigger: { trigger: el, start: 'top 84%' }
       });
     });
-    document.querySelectorAll('.work-grid, .chip-row, .ach-list').forEach(group => {
-      gsap.fromTo(group.children, { opacity: 0, y: 22 }, {
-        opacity: 1, y: 0, duration: 0.6, stagger: 0.08, ease: 'power2.out',
+    document.querySelectorAll('.work-grid, .chip-row, .ach-list, .work-secondary').forEach(group => {
+      gsap.fromTo(group.children, { opacity: 0, y: 26 }, {
+        opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease: 'power2.out',
         scrollTrigger: { trigger: group, start: 'top 88%' }
       });
     });
+    document.querySelectorAll('.exp-list li').forEach((li, i) => {
+      gsap.fromTo(li, { opacity: 0, x: -16 }, {
+        opacity: 1, x: 0, duration: 0.5, delay: i * 0.1, ease: 'power2.out',
+        scrollTrigger: { trigger: li, start: 'top 92%' }
+      });
+    });
     gsap.timeline({ defaults: { ease: 'power3.out' } })
-      .from('.eyebrow', { opacity: 0, y: 14, duration: 0.6 })
-      .from('h1.name', { opacity: 0, y: 20, duration: 0.7 }, '-=0.4')
-      .from('.subhead', { opacity: 0, y: 16, duration: 0.6 }, '-=0.4')
-      .from('.cta-row .btn', { opacity: 0, y: 12, duration: 0.5, stagger: 0.08 }, '-=0.3')
-      .from('.avail', { opacity: 0, duration: 0.5 }, '-=0.2')
-      .from('.bot-stage', { opacity: 0, scale: 0.85, duration: 0.8 }, '-=0.9');
+      .from('.eyebrow', { opacity: 0, y: 14, duration: 0.5 })
+      .from('h1.name', { opacity: 0, y: 24, duration: 0.8 }, '-=0.3')
+      .from('.subhead', { opacity: 0, y: 18, duration: 0.6 }, '-=0.4')
+      .from('.cta-row .btn', { opacity: 0, y: 14, duration: 0.5, stagger: 0.1 }, '-=0.3')
+      .from('.avail', { opacity: 0, duration: 0.4 }, '-=0.2')
+      .from('.proof-strip', { opacity: 0, y: 12, duration: 0.5 }, '-=0.1')
+      .from('.hero-cta-link', { opacity: 0, y: 10, duration: 0.4 }, '-=0.2')
+      .from('.hero-visual', { opacity: 0, x: 30, duration: 0.8 }, '-=0.6');
   } else {
     document.querySelectorAll('.reveal').forEach(el => el.style.opacity = 1);
   }
@@ -39,9 +70,13 @@
         const x = e.clientX - r.left, y = e.clientY - r.top;
         const rotX = ((y - r.height / 2) / r.height) * -8;
         const rotY = ((x - r.width / 2) / r.width) * 8;
-        card.style.transform = `perspective(700px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-3px)`;
+        card.style.setProperty('--rotX', rotX + 'deg');
+        card.style.setProperty('--rotY', rotY + 'deg');
       });
-      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+      card.addEventListener('mouseleave', () => {
+        card.style.setProperty('--rotX', '0deg');
+        card.style.setProperty('--rotY', '0deg');
+      });
     });
   }
 

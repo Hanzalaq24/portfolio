@@ -8,6 +8,9 @@
 <link rel="canonical" href="https://portfolio.akmal.in/">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://portfolio.akmal.in/">
@@ -69,8 +72,8 @@
     --code-bg: #1D1A15;
     --code-green: #8FBB99;
     --code-text: #EDE7D8;
-    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
-    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --serif: "Playfair Display", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
     --max: 1040px;
   }
@@ -441,14 +444,145 @@
   }
 
   a:focus-visible, button:focus-visible{ outline: 2px solid var(--accent-deep); outline-offset: 3px; }
+
+  /* ---------- SCROLL PROGRESS BAR ---------- */
+  #scrollProgress{
+    position:fixed; top:0; left:0; width:0%; height:2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-deep));
+    z-index:100; transition:width .1s linear;
+  }
+
+  /* ---------- NOISE TEXTURE OVERLAY ---------- */
+  body::after{
+    content:''; position:fixed; inset:0; z-index:9999;
+    opacity:0.025; pointer-events:none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat:repeat;
+    background-size:256px 256px;
+  }
+
+  /* ---------- NAV LINK ANIMATION ---------- */
+  nav.links a{ position:relative; }
+  nav.links a::after{
+    content:''; position:absolute; bottom:-3px; left:0; width:0; height:1.5px;
+    background:var(--accent); transition:width .35s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  nav.links a:hover::after{ width:100%; }
+
+  /* ---------- BUTTON MICRO-INTERACTIONS ---------- */
+  .btn{
+    position:relative; overflow:hidden;
+    transition: all .3s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .btn-primary:hover{
+    transform:translateY(-2px);
+    box-shadow: 0 8px 25px -8px rgba(95,74,36,0.4);
+  }
+  .btn-ghost:hover{
+    transform:translateY(-2px);
+    box-shadow: 0 8px 25px -8px rgba(138,106,52,0.25);
+    background:rgba(138,106,52,0.05);
+  }
+  .btn:active{ transform:scale(0.97); }
+
+  /* ---------- CARD MICRO-INTERACTIONS ---------- */
+  .card{
+    transition: transform .4s cubic-bezier(0.25,0.46,0.45,0.94),
+                box-shadow .4s cubic-bezier(0.25,0.46,0.45,0.94);
+    will-change:transform;
+    transform:
+      perspective(700px)
+      rotateX(var(--rotX, 0deg))
+      rotateY(var(--rotY, 0deg));
+  }
+  .card:hover{
+    box-shadow: 0 20px 40px -16px rgba(33,29,24,0.25);
+  }
+  .card .shot{
+    transition: transform .5s cubic-bezier(0.25,0.46,0.45,0.94);
+    will-change:transform;
+  }
+  .card:hover .shot{ transform:scale(1.04); }
+
+  /* ---------- PROOF PILL HOVER ---------- */
+  .proof-pill{
+    transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
+  }
+  .proof-pill:hover{
+    transform:translateY(-2px);
+    box-shadow: 0 6px 16px -8px rgba(138,106,52,0.3);
+    background:var(--line);
+  }
+
+  /* ---------- SITE BUTTON REFINED ---------- */
+  .site-btn{
+    transition: all .3s cubic-bezier(0.25,0.46,0.45,0.94);
+    position:relative; overflow:hidden;
+  }
+  .site-btn::before{
+    content:''; position:absolute; inset:0;
+    background:var(--accent); opacity:0; transition:opacity .3s ease;
+  }
+  .site-btn:hover::before{ opacity:0.06; }
+  .site-btn:active{ transform:scale(0.97); }
+
+  /* ---------- WORK CARD IMAGE WRAPPER ---------- */
+  .card{ border-radius: 8px; overflow:hidden; }
+  .card .shot{ border-radius:0; aspect-ratio:16/10; object-fit:cover; }
+
+  /* ---------- SECTION DIVIDER REFINEMENT ---------- */
+  section{ position:relative; }
+  section.alt::before{
+    content:''; position:absolute; top:0; left:0; right:0; height:1px;
+    background: linear-gradient(90deg, transparent, var(--line), transparent);
+  }
+
+  /* ---------- SMOOTH EYEBROW REFINEMENT ---------- */
+  .sec-eyebrow .rule{
+    transition:flex .6s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .sec-head:hover .sec-eyebrow .rule{ flex:1.5; }
+
+  /* ---------- HERO NAME LETTER SPACING ---------- */
+  h1.name{
+    transition: letter-spacing .6s ease;
+  }
+  .hero:hover h1.name{ letter-spacing: 0.01em; }
+
+  /* ---------- SCROLLBAR ---------- */
+  ::-webkit-scrollbar{ width:6px; }
+  ::-webkit-scrollbar-track{ background:var(--bg); }
+  ::-webkit-scrollbar-thumb{ background:var(--line); border-radius:99px; }
+  ::-webkit-scrollbar-thumb:hover{ background:var(--accent); }
+
+  /* ---------- MOBILE NAV DRAWER ---------- */
+  @media (max-width: 860px){
+    nav.links{
+      position:fixed; top:60px; left:0; right:0; background:var(--bg);
+      flex-direction:column; gap:0; padding:8px 0;
+      border-bottom:1px solid var(--line);
+      transform:translateY(-110%); opacity:0;
+      transition: transform .4s cubic-bezier(0.25,0.46,0.45,0.94), opacity .3s ease;
+      z-index:49;
+    }
+    nav.links.open{ transform:translateY(0); opacity:1; }
+    nav.links a{ padding:14px 32px; font-size:14px; }
+    nav.links a::after{ display:none; }
+    .nav-toggle{ display:flex; }
+  }
+  @media (min-width: 861px){
+    .nav-toggle{ display:none; }
+  }
 </style>
 </head>
 <body>
+<div id="scrollProgress"></div>
 
 <header class="nav" id="siteNav">
   <div class="nav-inner">
     <div class="mono-logo">&lt;<span>hq</span>/&gt;</div>
-    <nav class="links">
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" style="background:none;border:none;cursor:pointer;padding:6px;color:var(--ink);font-size:22px;line-height:1;">☰</button>
+    <nav class="links" id="navLinks">
       <a href="#work">Work</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
